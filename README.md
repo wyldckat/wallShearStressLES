@@ -53,13 +53,11 @@ Using Git
      git checkout OF21x
      ```
 
-   4. Build all of the libraries and utilities by running:
+   4. Build `wallShearStressLES` by running:
 
      ```
-     ./Allwmake
+     wmake
      ```
-
-   5. The tutorials are available at the folder `tutorials`.
 
 
 Using Zip
@@ -99,12 +97,8 @@ Using Zip
      cd wallShearStressLES-OF23x
      ```
      
-   4. Build all of the libraries and utilities by running:
+   4. Build `wallShearStressLES` by running:
 
      ```
-     ./Allwmake
+     wmake
      ```
-
-   5. The tutorials are available at the folder `tutorials`.
-
-
