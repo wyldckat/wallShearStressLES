@@ -6,6 +6,7 @@
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 2013-12-28 Oscar Ochoa: Adapted OpenFOAM's 2.1.1 wallShearStress to LES.
+2014-06-22 Bruno Santos: Adapted to OpenFOAM 2.2.x.
 -------------------------------------------------------------------------------
 License
     This file is a derivative work of OpenFOAM.
@@ -40,7 +41,6 @@ Description
 #include "incompressible/singlePhaseTransportModel/singlePhaseTransportModel.H"
 #include "incompressible/LES/LESModel/LESModel.H"
 
-#include "basicThermo.H"
 #include "compressible/LES/LESModel/LESModel.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -83,28 +83,26 @@ void calcCompressible
     volVectorField& wallShearStress
 )
 {
-    IOobject rhoHeader
+    autoPtr<fluidThermo> pThermo
     (
-        "rho",
-        runTime.timeName(),
-        mesh,
-        IOobject::MUST_READ,
-        IOobject::NO_WRITE
+        fluidThermo::New(mesh)
+    );
+    fluidThermo& thermo = pThermo();
+
+    volScalarField rho
+    (
+        IOobject
+        (
+            "rho",
+            runTime.timeName(),
+            mesh,
+            IOobject::READ_IF_PRESENT,
+            IOobject::AUTO_WRITE
+        ),
+        thermo.rho()
     );
 
-    if (!rhoHeader.headerOk())
-    {
-        Info<< "    no rho field" << endl;
-        return;
-    }
-
-    Info<< "Reading field rho\n" << endl;
-    volScalarField rho(rhoHeader, mesh);
-
     #include "compressibleCreatePhi.H"
-
-    autoPtr<basicThermo> pThermo(basicThermo::New(mesh));
-    basicThermo& thermo = pThermo();
 
     autoPtr<compressible::LESModel> model
     (
