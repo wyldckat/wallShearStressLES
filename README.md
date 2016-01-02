@@ -4,7 +4,9 @@ wallShearStressLES
 Utility originally by the forum member Oscar Ochoa, for OpenFOAM 2.1.1: http://www.cfd-online.com/Forums/openfoam/103304-calculate-wall-shear-stress-of210-les-simulation-2.html#post467894
 It's the one provided in the branch `OF21x`.
 
-This git repository further adapts the utility for OpenFOAM 2.2.x and 2.3.x, done by Bruno Santos (wyldckat@github).
+This git repository further adapts the utility for OpenFOAM 2.2.x and 2.3.x, done by Bruno Santos (wyldckat@github working at [blueCAPE Lda](www.bluecape.com.pt)).
+
+This feature was implemented in OpenFOAM 3.0.x, associated to this bug report: http://www.openfoam.org/mantisbt/view.php?id=1939
 
 
 License
