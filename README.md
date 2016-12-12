@@ -55,7 +55,7 @@ Using Git
      git checkout OF21x
      ```
 
-   4. Build `wallShearStressLES` by running:
+  4. Build `wallShearStressLES` by running:
 
      ```
      wmake
@@ -92,14 +92,14 @@ Using Zip
      wget https://github.com/wyldckat/wallShearStressLES/archive/OF21x.zip
      ```
 
-   3. Unzip the respective file and go into the respective folder, for example:
+  3. Unzip the respective file and go into the respective folder, for example:
 
      ```
      unzip OF23x.zip
      cd wallShearStressLES-OF23x
      ```
-     
-   4. Build `wallShearStressLES` by running:
+
+  4. Build `wallShearStressLES` by running:
 
      ```
      wmake
